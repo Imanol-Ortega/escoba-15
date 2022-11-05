@@ -1,0 +1,89 @@
+.container{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+}
+.logreg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    margin: 20px;
+    margin-bottom:-100px;
+    height: 400px;
+    width: 300px;
+    background-color: #ffe;
+    border: 1px solid #999;
+    border-radius: 8px;
+}
+
+input{
+    height: 25px;
+    width: 200px;
+}
+.a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cabecera{
+    width: 280px;
+    height: 100px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 280px;
+    height: 250px;
+}
+.boton{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 50px;
+}
+
+.err{
+    color: red;
+}
+.mayr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.check{
+    margin-left: 10px;
+    margin-top: 4px;
+    width: 15px;
+    height: 15px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.regis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 50px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+.regis:hover{
+    background-color: #555;
+}
+
+.login{
+    color: #e4f;
+}

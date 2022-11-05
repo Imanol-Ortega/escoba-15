@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">
+
+    <title>login</title>
+</head>
+<body>
+        <div class="container">
+            <div class="logreg">
+                <div class="cabecera a">
+                    <h1 class="obj">Iniciar Sesión</h1>
+                </div>
+                <div class="inputs a">
+                    <form action="/sesion" method="POST" class="inputs">
+                        <input type="text" name="nombre" class="nombre obj" autocomplete="off" placeholder="Nombre">
+                        <input type="password" name="pass" class="pass obj" autocomplete="off"  placeholder="Contraseña">
+                        <button class="button" type="submit">Conectar</button>
+                    </form>
+                </div>
+                <div class="err a">
+                    {% with messages = get_flashed_messages()  %}
+                    {% if messages %}
+                        <p>{{messages}}</p>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="boton a">
+                    <p>No tienes una cuenta <div class="regis"><a href="/register.html" class="register">Registrarse</a></div></p>
+                </div>
+            </div>
+        </div>
+    <script src="{{ url_for('static',filename='java.js') }}"></script>
+</body>
+</html>
