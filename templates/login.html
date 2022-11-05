@@ -1,13 +1,7 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">
-
-    <title>login</title>
-</head>
-<body>
+{% extends './layout.html' %}
+{% block title%}Menu{%endblock%}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">{%endblock%}
+{%block body%}
         <div class="container">
             <div class="logreg">
                 <div class="cabecera a">
@@ -28,10 +22,12 @@
                     {% endwith %}
                 </div>
                 <div class="boton a">
-                    <p>No tienes una cuenta <div class="regis"><a href="/register.html" class="register">Registrarse</a></div></p>
+                    <p>No tienes una cuenta 
+                        <div class="regis">
+                            <a href="/register.html" class="register">Registrarse</a>
+                        </div>
+                    </p>
                 </div>
             </div>
         </div>
-    <script src="{{ url_for('static',filename='java.js') }}"></script>
-</body>
-</html>
+    {%endblock%}

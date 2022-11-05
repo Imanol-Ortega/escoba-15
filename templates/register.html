@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">
-    <title>Register</title>
-</head>
-<body>
+{% extends './layout.html' %}
+{% block title%}Registro{%endblock%}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">{%endblock%}
+{%block body%}
         <div class="container">
             <div class="logreg">
                 <div class="cabecera a">
@@ -24,7 +18,7 @@
                         <p>
                             {% with messages = get_flashed_messages()  %}
                             {% if messages %}
-                                {{messages}}
+                                <p>{{messages}}</p>
                             {% endif %}
                             {% endwith %}
                         </p>
@@ -35,5 +29,4 @@
             </div>
         </div>
 
-</body>
-</html>
+{%endblock%}

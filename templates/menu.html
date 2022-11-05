@@ -1,0 +1,31 @@
+{% extends './layout.html' %}
+{% block title%}Menu{%endblock%}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">{%endblock%}
+{%block body%}
+
+    <div class="container">
+        <div class="menu">
+            <div class="modo">
+                <button class="btn-modo">Modo</button>
+            </div>
+            <div class="preferencias">
+                <button class="btn-preferencias">Preferencias</button>
+            </div>
+            <div class="conectar">
+                <button class="btn-conectar">Conectar</button>
+            </div>
+        </div>
+        <div class="sub-preferencias">
+            <div> 
+                <button class="atras">Atras</button>
+                <p>Preferencias</p></div>
+            <div class="elegir-carta">
+
+            </div>
+            <div class="">
+
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
