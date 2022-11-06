@@ -2,7 +2,35 @@
 {% block title%}Escoba 15{%endblock%}
 {% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}">{%endblock%}
 {%block body%}
-
+    <div class="container">
+        <div class="player">
+            <div class="carta">
+                <div class="content-cartas imagen">
+                    <img src="{{ url_for('static',filename='cartasesp/reverso-min.png')}}">
+                </div>
+            </div>
+            <div class="mesa">
+                <div class="jugador1 imagen">
+                    <div class="cartajugador imagen ji1-1">
+                        <img class="img-cartajugador">
+                    </div>
+                    <div class="cartajugador imagen ji1-2"></div>
+                    <div class="cartajugador imagen ji1-3"></div>
+                </div>
+                <div class="mesa-carta">
+                    <div class="carta-mesa"></div>
+                    <div class="carta-mesa"></div>
+                    <div class="carta-mesa"></div>
+                    <div class="carta-mesa"></div>
+                </div>
+                <div class="jugador2">
+                    <div class="cartajugador ji2-1"></div>
+                    <div class="cartajugador ji2-1"></div>
+                    <div class="cartajugador ji2-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
 
