@@ -1,31 +1,101 @@
 {% extends './layout.html' %}
 {% block title%}Menu{%endblock%}
-{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">{%endblock%}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='menu.css') }}">{%endblock%}
 {%block body%}
 
     <div class="container">
         <div class="menu">
-            <div class="modo">
-                <button class="btn-modo">Modo</button>
+            <div class="title a"><p>Menú</p></div>
+            <div class="modo a">
+                <p>Modo</p>
+                <select class="elegir-modo">
+                    <option value="1">Contrincante aleatorio</option>
+                    <option value="2">Elegir contrincante</option>
+                </select>
             </div>
-            <div class="preferencias">
+            <div class="preferencias a">
                 <button class="btn-preferencias">Preferencias</button>
             </div>
-            <div class="conectar">
+            <div class="conectar a">
                 <button class="btn-conectar">Conectar</button>
             </div>
         </div>
-        <div class="sub-preferencias">
-            <div> 
-                <button class="atras">Atras</button>
-                <p>Preferencias</p></div>
-            <div class="elegir-carta">
 
+        <div class="sub-preferencias disp">
+            <div class="cabecera a"> 
+                <p>PREFERENCIAS</p></div>
+            <div class="elegir-carta a">
+                <p>Baraja</p>
+                <select class="elegir-baraja">
+                    <option value="1">Carta Española</option>
+                    <option value="2">Carta Inglesa</option>
+                </select>
             </div>
-            <div class="">
-
+            <div class="reglas a">
+                <button class="btn-reglas">Reglas</button>
+            </div>
+            <div class="efect-sound a">
+                <p class="sound">Efecto de sonido</p>
+                <input type="checkbox" class="check">
+            </div>
+            <div class="atras">
+                <button class="atras-pref">Atras</button>
+            </div>
+        </div>
+        <div class="sub-reglas disp">
+            <div class="div-scroll">
+                <ul>
+                    <li> 
+                        <p class="p-reglas">Objetivo del juego:</p> El objetivo primordial de este juego es llevarse el mayor número 
+                        posible de puntos con las cartas capturadas, haciendo combinaciones que sumen 15 entre 
+                        las descubiertas del centro de la mesa y una de su mano, tomando como preferencia las del 
+                        palo de oros y muy especialmente los sietes, ya que, junto a las Escobas, son los que más 
+                        puntúan al final del juego. 
+                    </li>
+                    <li> 
+                        <p class="p-reglas">Baraja de cartas:</p> Se emplea una baraja de 40 cartas
+                    </li>
+                    <li> <p class="p-reglas">Orden y valor de las cartas:</p> En la escoba, el orden de las cartas es indiferente.
+                        Se quitan el 9 y el 8 y las siguientes cartas valen 8, 9 y 10.
+                        Cuando el jugador que da las cartas, al colocar las cuatro cartas descubiertas en el centro de la mesa, 
+                        viese que suman 15 0 15 más 15, las recogerá para sí, contando una o dos Escobas, respectivamente, 
+                        no teniendo que sacar del mazo otras cuatro cartas.
+                    </li>
+                    <li>
+                        <p class="p-reglas">Distribuicion de las cartas: </p>
+                        Se distribuira de una en una tres cartas a cada jugador y colocará a continuacion, en el centro de la mesa, cuatro 
+                        cartas descubiertas
+                    </li>
+                    <li>
+                        <p class="p-reglas">Inicio y marcha del juego: </p>
+                        Comenzara a jugar el jugador que no reparte, colocando descubierta en el centro de la mesa, una de sus cartas,
+                        procurando ligar esta carta con todas o alguna de las descubiertas con el objetivo de sumar 15. En este caso, tomara
+                        dichas cartas y las colocara vueltas hacia abajo a su lado.
+                        Un jugador hace Escoba cuando la carta que juega suma 15 con todas las descubiertas del centro de la mesa. 
+                        En este caso, dejará una de dichas cartas vuelta hacia arriba para comprobar al final del juego el número de Escobas conseguido.
+                    </li>
+                    <li>
+                        <p class="p-reglas">Tanteo: </p>La partida suele jugarse a 15 puntos, puediendo alcanzarse dicha puntuacion en uno o mas juegos
+                        parciales. Al terminar el juego parcial, cada jugador procedera a examinar las cartas que forman:
+                        <ul>
+                            <li>Por cada escoba: 1 Punto</li>
+                            <li>Por tener todos los oros: 2 Puntos</li>
+                            <li>Por tener mayoria de oro: 1 Punto</li>
+                            <li>Por tener el 7 de oro: 1 Punto</li>
+                            <li>Por tener los 4 sietes: 3 Puntos</li>
+                            <li>Por tener mayoria de sietes: 1 Punto</li>
+                            <li>Por tener mayoria de cartas: 1 Punto</li>
+                            <li>Si el contrario tiene menos de 10 cartas: 2 Puntos</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="atras-preferencias">
+                <button class="atras-reglas">Atras</button>
             </div>
         </div>
     </div>
-
+    {%block script%}
+    <script src="{{ url_for('static',filename='menu.js') }}"></script>
+    {%endblock%}
 {%endblock%}

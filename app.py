@@ -8,14 +8,12 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'cartasescobas'
 mysql = MySQL(app)
-
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT id,name,pass FROM user')
     data = cur.fetchall()
     cur.close()
     return data
-
 @app.route('/')
 @app.route('/login.html')
 def login():
@@ -48,7 +46,7 @@ def sesion():
                 bandp = False
         if bandn == True:
             if bandp == True:
-                return render_template('index.html')
+                return render_template('menu.html')
             else:
                 flash('Nombre o contraseña incorrecto')
                 return redirect(url_for('login'))

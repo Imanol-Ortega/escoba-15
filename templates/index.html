@@ -1,15 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename='estilo.css') }}">
-    <title>Escoba 15</title>
-</head>
-<body>
-    <div class="content">
-        <p class="txt">Escoba 15</p>
-    </div>
-    <script src="{{ url_for('static',filename='java.js') }}"></script>
-</body>
-</html>
+{% extends './layout.html' %}
+{% block title%}Escoba 15{%endblock%}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}">{%endblock%}
+{%block body%}
+
+    
+
+
+{%block script%}
+    <script src="{{ url_for('static',filename='index.js') }}"></script>
+{%endblock%}
+{%endblock%}
