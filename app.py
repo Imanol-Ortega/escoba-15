@@ -17,7 +17,7 @@ def obtener():
 
 def obtener_carta():
     cur = mysql.connection.cursor()
-    cur.execute('SELECT id,content FROM cartasesp')
+    cur.execute('SELECT id,content FROM cartasing')
     data = cur.fetchall()
     cur.close()
     return data
