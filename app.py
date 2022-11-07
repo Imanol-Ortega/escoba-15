@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asdf34325'
 app.config['MYSQL_HOST'] = 'localhost'
@@ -8,12 +7,21 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'cartasescobas'
 mysql = MySQL(app)
+
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT id,name,pass FROM user')
     data = cur.fetchall()
     cur.close()
     return data
+
+def obtener_carta():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT id,content FROM cartasesp')
+    data = cur.fetchall()
+    cur.close()
+    return data
+
 @app.route('/')
 @app.route('/login.html')
 def login():
@@ -23,7 +31,8 @@ def register():
     return render_template("register.html")
 @app.route('/index.html')
 def Index():
-    return render_template('index.html')
+    carta = obtener_carta()
+    return render_template('index.html',cartas=carta)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     bandn = True
@@ -75,5 +84,6 @@ def registrar():
         else:
             flash("Ya existe el nombre de usuario")
             return redirect(url_for("register"))
+
 if __name__ == "__main__":
-    app.run(debug= True, port=5000)
+    app.run(debug=True,port=5000)

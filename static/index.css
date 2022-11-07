@@ -67,17 +67,17 @@ body{
     object-fit: cover;
 }
 .cartajugador{
-    margin-top: -50px;
     margin-left: 10px;
     width: 150px;
     height: 230px;
     background-color: #fff;
-    border: 1px solid #000;
     background-color: #a43f3f;
 }
 .carta-mesa{
-    width: 120px;
-    height: 170px;
-    background-color: #fff;
-    border: 1px solid #000;
+    width: 130px;
+    height: 200px;
+    background-color: #a43f3f;
+}
+input{
+    display: none;
 }
