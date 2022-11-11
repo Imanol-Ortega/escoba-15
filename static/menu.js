@@ -15,3 +15,4 @@ document.querySelector(".atras-reglas").addEventListener("click",()=>{
     document.querySelector(".sub-preferencias").classList.remove("disp");
 });
 
+crearCockie(document.querySelector('input').value);
