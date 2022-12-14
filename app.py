@@ -47,26 +47,29 @@ def register():
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nn
-    bandn = True
-    bandp = True
+    bandn = False
+    bandp = False
     if request.method == 'POST':
         name = request.form['nombre']
         pasw = request.form['pass']
         data = obtener()
         for i in data:
             if name in i:
+                print('si nombre')
                 bandn = True
                 break
             else:
                 bandn = False
         for j in data:
             if pasw in j:
+                print('si pass')
                 bandp = True
                 break
             else:
                 bandp = False
         if bandn == True:
             if bandp == True:
+                print('entre')
                 return render_template('menu.html',nombre=name)
             else:
                 flash('Nombre o contraseña incorrecto')
@@ -87,13 +90,17 @@ def registrar():
                 break
             else:
                 bandn = True
-        if bandn == True:
-            cur = mysql.connection.cursor()
-            cur.execute("INSERT INTO user (name,pass) VALUES (%s,%s)",(name,pasw))
-            mysql.connection.commit()
-            return redirect(url_for('login'))
-        else:
-            flash("Ya existe el nombre de usuario")
+        if pasw != '':
+            if bandn == True:
+                cur = mysql.connection.cursor()
+                cur.execute("INSERT INTO user (name,pass) VALUES (%s,%s)",(name,pasw))
+                mysql.connection.commit()
+                return redirect(url_for('login'))
+            else:
+                flash("Ya existe el nombre de usuario")
+                return redirect(url_for("register"))
+        else: 
+            flash("No se puede tener contraseña vacia")
             return redirect(url_for("register"))
 
 @app.route('/conectar',methods = ['POST'])
