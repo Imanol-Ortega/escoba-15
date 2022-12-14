@@ -26,10 +26,12 @@ const comprobar = (letra)=>{
         }
     }
     if(cont == 6 ){
-        console.log('HAS PERDIDO');
+        document.querySelector('.mensaje').classList.remove('display');
+        document.querySelector('.perdedor').classList.remove('display');
     }
     if(contP == limit){
-        console.log('HAS GANADO');
+        document.querySelector('.mensaje').classList.remove('display');
+        document.querySelector('.ganador').classList.remove('display');
     }
 }
 const crearCajas = ()=>{
@@ -54,7 +56,7 @@ const crearCajas = ()=>{
 }
 crearCajas();
 
-console.log(palabra)
+console.log(palabra);
 
 addEventListener('keydown',(e)=>{
     if(cont<6){
@@ -140,4 +142,11 @@ addEventListener('keydown',(e)=>{
             comprobar('Z');
         }
     }
+});
+
+document.querySelector('.reiniciar').addEventListener("click",()=>{
+    window.location.href = '/index.html';
+});
+document.querySelector('.menu').addEventListener("click",()=>{
+    window.location.href = '/menu.html';
 })

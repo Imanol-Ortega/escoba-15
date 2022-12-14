@@ -4,12 +4,22 @@ body{
 }
 .container{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    width: 100%;
+    background-color: #000;
+    z-index: 1;
+}
+.subC{
+    display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     height: 98vh;
-    width: 100%;
+    width: 1000px;
     background-color: #000;
+    z-index: 1;
 }
 .palabra{
     display: flex;
@@ -38,4 +48,52 @@ body{
     height: 500px;
     width: 700px;
     
+}
+.a{
+    opacity: 70%;
+    font-size: 30px;
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #edd4d4;
+    color: #ff0000;
+    font-weight: bold;
+}
+.reiniciar{
+    width: 130px;
+    height: 30px;
+    background-color: #666;
+    color: #fff;
+    border-radius: 4px;
+}
+.reiniciar:hover{
+    background-color: #999;
+    color: #fff;
+    cursor: cell;
+}
+.display{
+    display: none;
+}
+.menu{
+    width: 180px;
+    height: 30px;
+    background-color: #666;
+    color: #fff;
+    border-radius: 4px;
+}
+.menu:hover{
+    background-color: #999;
+    color: #fff;
+    cursor: cell;
+}
+.si{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 100px;
 }

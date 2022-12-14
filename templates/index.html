@@ -6,12 +6,22 @@
     <input type="text" class="pal" value={{palabra.0}} style="display: none;">
     <input type="text" class="dif" value={{dif}} style="display: none;">
     <div class="container">
-        <div class="ahorcado">
-            <div class="img-ahorcado">
-                <img class="imagen" src="static/img/1.png">
+        <div class="subC">
+            <div class="ahorcado">
+                <div class="img-ahorcado">
+                    <img class="imagen" src="static/img/1.png">
+                </div>
+            </div>
+            <div class="palabra">
             </div>
         </div>
-        <div class="palabra">
+        <div class="mensaje display a">
+            <p class="ganador display">Adivinaste la palabra sos un KAPO</p>
+            <p class="perdedor display">Como no vas a adivinar</p>
+            <div class="si">
+                <button class="reiniciar">Reiniciar</button>
+                <button class="menu">VOLVER AL MENU</button>
+            </div>
         </div>
     </div>
 {%block script%}

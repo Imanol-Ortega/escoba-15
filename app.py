@@ -10,6 +10,7 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'ahorcado'
 mysql = MySQL(app)
 
+dificultad = ''
 
 def obtener():
     cur = mysql.connection.cursor()
@@ -38,12 +39,15 @@ def rand_palabra(dif):
 @app.route('/login.html')
 def login():
     return render_template("login.html")
+@app.route('/menu.html')
+def menu():
+    return render_template("menu.html",nombre = '')
 @app.route('/register.html')
 def register():
     return render_template("register.html")
-#@app.route('/index.html')
-#def Index():
- #   return render_template('index.html')
+@app.route('/index.html')
+def Index():
+    return render_template('index.html',palabra = rand_palabra(dificultad),dif = dificultad)
 @app.route('/sesion',methods = ['POST'])
 def sesion():
     global nn
@@ -105,6 +109,7 @@ def registrar():
 
 @app.route('/conectar',methods = ['POST'])
 def conectar():
+     global dificultad
      if request.method == 'POST':
         dificultad = request.form['dificultad']
         
