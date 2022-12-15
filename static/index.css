@@ -19,6 +19,7 @@ body{
     height: 98vh;
     width: 1000px;
     background-color: #000;
+    border: 2px dashed #fff;
     z-index: 1;
 }
 .palabra{
@@ -55,7 +56,7 @@ body{
     position: absolute;
     z-index: 10;
     width: 400px;
-    height: 250px;
+    height: 300px;
     border-radius: 5px;
     text-align: center;
     background-color: #edd4d4;
@@ -96,4 +97,7 @@ body{
     align-items: center;
     width: 400px;
     height: 100px;
+}
+.img-ahorcado{
+    border-bottom: 3px solid #fff;
 }

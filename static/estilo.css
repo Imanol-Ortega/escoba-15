@@ -1,3 +1,7 @@
+body{
+    background-color: #000;
+    user-select: none;
+}
 .container{
     display:flex;
     justify-content: center;
@@ -51,7 +55,7 @@ input{
     height: 50px;
 }
 .err{
-    color: red;
+    color: #ffff;
 }
 .mayr{
     display: flex;
@@ -98,4 +102,7 @@ a{
     background-color: #555;
     color: #fff;
     cursor: cell;
+}
+.message{
+    font-size: 17px;
 }

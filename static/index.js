@@ -4,16 +4,27 @@ const contCaj = document.querySelector('.palabra');
 let limit =0;
 let cont = 1;
 let contP = 0;
+let letC = "";
 const comprobar = (letra)=>{
     let band = true;
-    for(let i=0; i <limit;i++){
-        if(palabra[i] == letra){
-            contP++;
-            band = false;
-            document.querySelector(`.letra${i}`).textContent = palabra[i];
+    let letE = false;
+    for(let i=0; i<letC.length; i++){
+        if(letra == letC[i]){
+            letE = true;
+            break;
         }
     }
-    if(band == true){
+    if(letE == false){
+        for(let i=0; i <limit;i++){
+            if(palabra[i] == letra){
+                contP++;
+                band = false;
+                letC += letra;
+                document.querySelector(`.letra${i}`).textContent = palabra[i];
+            }
+        }
+    }
+    if(band == true && letE == false){
         cont++;
         if(cont<=6){
             document.querySelector('.imagen').src = `static/img/${cont}.png`;
@@ -22,10 +33,13 @@ const comprobar = (letra)=>{
     if(cont == 6 ){
         document.querySelector('.mensaje').classList.remove('display');
         document.querySelector('.perdedor').classList.remove('display');
+        document.querySelector('.mPalabra').classList.remove('display');
+        document.querySelector('.mPalabra').textContent += palabra;
     }
     if(contP == limit){
         document.querySelector('.mensaje').classList.remove('display');
         document.querySelector('.ganador').classList.remove('display');
+        
     }
 }
 const crearCajas = ()=>{ 

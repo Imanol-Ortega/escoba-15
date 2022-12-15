@@ -53,21 +53,18 @@ def sesion():
         data = obtener()
         for i in data:
             if name in i:
-                print('si nombre')
                 bandn = True
                 break
             else:
                 bandn = False
         for j in data:
             if pasw in j:
-                print('si pass')
                 bandp = True
                 break
             else:
                 bandp = False
         if bandn == True:
             if bandp == True:
-                print('entre')
                 return render_template('menu.html')
             else:
                 flash('Nombre o contraseña incorrecto')
@@ -105,7 +102,6 @@ def conectar():
      global dificultad
      if request.method == 'POST':
         dificultad = request.form['dificultad']
-        
         return render_template('index.html',palabra = rand_palabra(dificultad),dif = dificultad)
 if __name__ == "__main__":
   app.run(debug = True,port=5000)
