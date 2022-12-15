@@ -2,14 +2,8 @@ const palabra = document.querySelector(".pal").value;
 const dificultad = document.querySelector(".dif").value;
 const contCaj = document.querySelector('.palabra');
 let limit =0;
-
 let cont = 1;
 let contP = 0;
-
-const pantalla = ()=>{
-    
-}
-
 const comprobar = (letra)=>{
     let band = true;
     for(let i=0; i <limit;i++){
@@ -34,8 +28,7 @@ const comprobar = (letra)=>{
         document.querySelector('.ganador').classList.remove('display');
     }
 }
-const crearCajas = ()=>{
-   
+const crearCajas = ()=>{ 
     if(dificultad == 'facil'){
         limit = 5;
     }
@@ -55,9 +48,7 @@ const crearCajas = ()=>{
     contCaj.appendChild(frag);
 }
 crearCajas();
-
 console.log(palabra);
-
 addEventListener('keydown',(e)=>{
     if(cont<6){
         if(e.key == 'a' || e.key == 'A' ){
@@ -143,7 +134,6 @@ addEventListener('keydown',(e)=>{
         }
     }
 });
-
 document.querySelector('.reiniciar').addEventListener("click",()=>{
     window.location.href = '/index.html';
 });

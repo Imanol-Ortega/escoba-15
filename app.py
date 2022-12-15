@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 import secrets
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'asdf34325'
 app.config['MYSQL_HOST'] = 'localhost'
@@ -9,16 +8,13 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'ahorcado'
 mysql = MySQL(app)
-
 dificultad = ''
-
 def obtener():
     cur = mysql.connection.cursor()
     cur.execute('SELECT id,name,pass FROM user')
     data = cur.fetchall()
     cur.close()
     return data
-
 def obtener_palabra(dif):
     cur = mysql.connection.cursor()
     if dif == 'facil':
@@ -30,18 +26,16 @@ def obtener_palabra(dif):
     data = cur.fetchall()
     cur.close()
     return data
-
 def rand_palabra(dif):
     palabra = obtener_palabra(dif)
     return secrets.choice(palabra)
-
 @app.route('/')
 @app.route('/login.html')
 def login():
     return render_template("login.html")
 @app.route('/menu.html')
 def menu():
-    return render_template("menu.html",nombre = '')
+    return render_template("menu.html")
 @app.route('/register.html')
 def register():
     return render_template("register.html")
@@ -74,7 +68,7 @@ def sesion():
         if bandn == True:
             if bandp == True:
                 print('entre')
-                return render_template('menu.html',nombre=name)
+                return render_template('menu.html')
             else:
                 flash('Nombre o contraseña incorrecto')
                 return redirect(url_for('login'))
@@ -106,7 +100,6 @@ def registrar():
         else: 
             flash("No se puede tener contraseña vacia")
             return redirect(url_for("register"))
-
 @app.route('/conectar',methods = ['POST'])
 def conectar():
      global dificultad
@@ -114,7 +107,5 @@ def conectar():
         dificultad = request.form['dificultad']
         
         return render_template('index.html',palabra = rand_palabra(dificultad),dif = dificultad)
-
-
 if __name__ == "__main__":
   app.run(debug = True,port=5000)
